@@ -99,4 +99,4 @@ squareEls.forEach((squareEl) => {
 });
 resetButton.addEventListener("click", handleReset);
 
-init(); //init is called here
+init(); //init is called here at the end, because variables within init need to be declared first before running init()
