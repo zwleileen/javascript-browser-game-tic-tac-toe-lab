@@ -15,7 +15,7 @@ const player = {
 
 //step 3: initialise game state and call function
 const init = () => {
-  board = ["", "", "", "", "", "", "", "", ""];
+  board = ["X", "X", "X", "", "", "", "", "", ""];
   turn = "1";
   winner = false;
   tie = false;
@@ -41,5 +41,20 @@ const winningCombos = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+//check if any winningCombo is achieved
+for (let i = 0; i < winningCombos.length; i++) {
+  let combo = winningCombos[i]; //loops through all winningCombos
+  let a = board[combo[0]]; //loops within entire row of winningCombo[i]
+  let b = board[combo[1]];
+  let c = board[combo[2]];
+
+  if (a && a === b && a === c) {
+    //checks that the entire row of winningCombo[i] is the same
+    winner = a; //
+    gameStatus = `${winner} Wins`;
+    return; //as soon as we find a winner, we exit function, instead of continuing to check all other combinations
+  }
+}
 
 init();
